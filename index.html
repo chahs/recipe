@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <h2>재료</h2>
+        <input v-model="inputIngredient" v-on:keyup.enter="AddIngredient" />
+        <ul>
+            <li is="ingredient-item"
+                v-for="(ingredient, index) in addedIngredients"
+                v-bind:key="ingredient.id"
+                v-bind:name="ingredient.name"
+                v-on:remove="RemoveIngredient(index)"
+            ></li>
+        </ul>
+        <h2>레시피</h2>
+        <ul>
+            <li v-for="recipe in matchedRecipes">
+                <span>{{recipe.name + ' (p. ' + recipe.page + ')'}}</span>
+                <span class="included-ingredient" v-for="(ingredientName, index) in recipe.includedIngredientNames">{{ingredientName}}</span>
+                <span class="excluded-ingredient" v-for="(ingredientName, index) in recipe.excludedIngredientNames">{{ingredientName}}</span>
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

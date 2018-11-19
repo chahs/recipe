@@ -1,0 +1,11 @@
+.included-ingredient {
+    color: green;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.excluded-ingredient {
+    color: gray;
+    margin-left: 6px;
+    margin-right: 6px;
+}
